@@ -11,17 +11,16 @@ public class ConnectionManager {
 
 	public static Connection getConnection() throws SQLException, ClassNotFoundException, IOException {
 
-		Properties prop = loadProperties();
+		// Properties prop = loadProperties();
 
-		String driver = prop.getProperty("driver");
+//		String driver = prop.getProperty("driver");
 
-		Class.forName(driver);
+		Class.forName("oracle.jdbc.driver.OracleDriver");
 
-		String url = prop.getProperty("url");
-		String user = prop.getProperty("username");
-		String password = prop.getProperty("password");
+		Connection con = null;
 
-		Connection con = DriverManager.getConnection(url, user, password);
+		con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "blog", "blog");
+
 		return con;
 
 	}

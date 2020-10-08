@@ -22,7 +22,11 @@ public class UserDAO implements UserDaoInterface {
 		String pass = user.getPassword();
 		Date date = user.getDate();
 
-		String sql = "Insert into user(email,password,date) values(?,?,?)";
+		System.out.println(email);
+		System.out.println(pass);
+		System.out.println(date);
+
+		String sql = "Insert into userdetails(email,password,dat) values(?,?,?)";
 
 		PreparedStatement st = cm.getConnection().prepareStatement(sql);
 
